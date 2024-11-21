@@ -24,6 +24,11 @@ public class App {
       new Book("Book 5", "Author 5", 2004, UUID.randomUUID().getLeastSignificantBits())
     );
 
-    LibraryService ls = new LibraryService(users, books);
+    try {
+      LibraryService ls = new LibraryService(users, books);
+      System.out.println(ls.getAllAvailableBooks());
+    } catch (IllegalArgumentException e) {
+      System.out.println(e.getMessage());
+    }
   }
 }
